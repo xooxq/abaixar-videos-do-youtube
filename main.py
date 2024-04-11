@@ -49,7 +49,7 @@ while True:
         if ad:
             ad.download(filename=f"{yt.title}.mp3")  
         else:
-            print('Infelizmente não é possível abaixar nenhuma opções de áudios.')
+            print('Infelizmente não foi possível abaixar o áudio.')
     sleep(2)
     z = input("Deseja abaixar mais coisas (s/n) ?: ").strip().upper()
     while z not in "SN":
