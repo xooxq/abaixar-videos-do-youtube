@@ -46,13 +46,13 @@ while True:
         #caso você queira abaixar outra resolução, só alterar de "720p", para a resolução desejada.
         vd = yt.streams.filter(res="720p", progressive=True, file_extension="mp4").first()
         if vd:
-            vd.download(filename=f"{yt.title}.mp4")
+            vd.download(filename=f"{yt.title}.mp4") # o vídeo será abaixado na pasta de onde o .py estiver.
         else:
             print('Não foi possível abaixar esse vídeo')
     else:
         ad = yt.streams.filter(only_audio=True).first()
         if ad:
-            ad.download(filename=f"{yt.title}.mp3")  
+            ad.download(filename=f"{yt.title}.mp3") # assim como o vídeo, o áudio será abaixado na pasta de onde o .py estiver. 
         else:
             print('Infelizmente não é possível abaixar esse áudio.')
     sleep(2)
