@@ -12,13 +12,13 @@ while True:
     while True:
         system('cls')
         try:
-            x = input("Ensira a url do link (0 para cancelar): ").strip()
+            x = input("Digite a url do link (0 para cancelar): ").strip()
             if x == "0":
                 break
             yt = YouTube(x)
             break
         except:
-            limpar("Erro. Ensira um link válido!")
+            limpar("Erro. Digite um link válido!")
     if x == '0':
         break
     system('cls')
@@ -30,10 +30,13 @@ while True:
             y = int(input("""[0] Cancelar
 [1] Vídeo
 [2] Áudio
-"""))
-            break
+"""))       
+            if y<=2 and y>=0:
+                break
+            else:
+                limpar("Digite apenas de 0 a 2!")
         except ValueError:
-            limpar("Ensira apenas números!")
+            limpar("Digite apenas números!")
     if y==0:
         break
     print("-"*30)
@@ -43,13 +46,13 @@ while True:
         if vd:
             vd.download(filename=f"{yt.title}.mp4")
         else:
-            print('Não foi possível abaixar o vídeo')
+            print('Não foi possível abaixar esse vídeo')
     else:
         ad = yt.streams.filter(only_audio=True).first()
         if ad:
             ad.download(filename=f"{yt.title}.mp3")  
         else:
-            print('Infelizmente não foi possível abaixar o áudio.')
+            print('Infelizmente não é possível abaixar esse áudio.')
     sleep(2)
     z = input("Deseja abaixar mais coisas (s/n) ?: ").strip().upper()
     while z not in "SN":
@@ -57,5 +60,5 @@ while True:
         z = input("Deseja abaixar mais coisas (s/n) ?: ").strip().upper()
     if z == 'N':
         system('cls')
-        print('Fim do programa. Volte logo')
+        print('Fim do programa. Volte logo\n')
         break
