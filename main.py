@@ -9,8 +9,8 @@ def limpar(x):
     system('cls')
 
 while True:
+    system('cls')
     while True:
-        system('cls')
         try:
             #caso você digite errado o link ou qualquer coisa que não seja o link, vai retornar um erro do pytube e não do código em sí.
             x = input("Digite a url do link (0 para cancelar): ").strip()
